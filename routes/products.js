@@ -1,6 +1,6 @@
-const express = require('express')
-const axios = require('axios')
-const url = require('./../constants')
+import express from 'express'
+import axios from 'axios'
+import { redSky as url } from './../constants'
 
 const router = express.Router()
 
@@ -56,4 +56,4 @@ router.get('/', async (req, res) => {
     }
 })
 
-module.exports = router
+export default router

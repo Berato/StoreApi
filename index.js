@@ -1,9 +1,9 @@
-const express = require('express');
+import express from 'express'
+import bodyParser from 'body-parser'
+import cors from 'cors'
+import productRoute from './routes/products'
 
 const app = express();
-const bodyParser = require('body-parser')
-const productRoute = require('./routes/products');
-const cors = require('cors')
 
 app.use(bodyParser.json())
 
