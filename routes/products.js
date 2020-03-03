@@ -47,7 +47,7 @@ router.route('/:id')
         .get(productsURL,
           {
             params: {
-              excludes: 'taxonomy,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics' 
+              excludes: 'taxonomy,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics'
             }
           })
 
