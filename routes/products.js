@@ -27,7 +27,7 @@ router.route('/:id')
       const update = await Products.update({ product_id: id }, { current_price: { value: price, currency_code: 'USD' } }, { upsert: true })
       return res.send({ update })
     } catch (error) {
-      return res.send({ error: error.message })
+      return res.status(error.response.status || 400).send({ error: error.message })
     }
   })
   .get(async (req, res) => {
@@ -67,7 +67,7 @@ router.route('/:id')
 
       return res.send(response)
     } catch (error) {
-      return res.send({ error: error.message })
+      return res.status(error.response.status || 400).send({ error: error.message })
     }
   })
 
@@ -76,7 +76,7 @@ router.get('/', async (req, res) => {
     const products = await axios.get(url)
     return res.send({ products })
   } catch (error) {
-    return res.send({ error: error.message })
+    return res.status(error.response.status || 400).send({ error: error.message })
   }
 })
 
