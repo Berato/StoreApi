@@ -1,6 +1,6 @@
 import jwt from 'jsonwebtoken'
 
-const verifyJWT = async (req, res, next) => {
+const verifyJWT = (req, res, next) => {
   const authToken = req.headers['auth-token']
 
   try {

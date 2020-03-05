@@ -5,11 +5,8 @@ import productRoute from './routes/products'
 import authRoute from './routes/auth'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
-const path = process.env.NODE_ENV === 'dev' ? '.env' : '.env.production'
 
-dotenv.config({
-  path
-})
+dotenv.config()
 
 const app = express()
 
