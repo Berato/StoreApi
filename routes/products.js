@@ -23,6 +23,8 @@ router.route('/:id')
       if (!price) {
         const data = await getProductData(productsURL, { params: { excludes: 'taxonomy,promotion,bulk_ship,rating_and_review_reviews,rating_and_review_statistics,question_answer_statistics' } })
         price = data.product.price.listPrice.price
+
+        console.log('\n\n Showing price from service, not DB', price, '\n\n')
       }
       price = parseFloat(price)
       if (isNaN(price)) {
