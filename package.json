@@ -4,8 +4,8 @@
   "description": "My coding assignment submission for Target",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon -r esm index.js",
-    "run" : "node -r esm index.js"
+    "dev": "nodemon -r esm index.js",
+    "start" : "node -r esm index.js"
   },
   "repository": "https://github.com/Berato/StoreApi.git",
   "author": "Berato <wilson.berato@gmail.com>",
