@@ -5,8 +5,11 @@ import productRoute from './routes/products'
 import authRoute from './routes/auth'
 import dotenv from 'dotenv'
 import mongoose from 'mongoose'
+const path = process.env.NODE_ENV === 'dev' ? '.env' : '.env.production'
 
-dotenv.config()
+dotenv.config({
+  path
+})
 
 const app = express()
 
@@ -25,6 +28,6 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use('/products', productRoute)
 app.use('/auth', authRoute)
 
-app.listen('3000', () => {
+app.listen(process.env.PORT || 3000, () => {
   console.log('Listening on port 3000')
 })
