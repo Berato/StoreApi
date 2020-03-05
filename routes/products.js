@@ -71,13 +71,13 @@ router.route('/:id')
     }
   })
 
-router.get('/', async (req, res) => {
-  try {
-    const products = await axios.get(url)
-    return res.send({ products })
-  } catch (error) {
-    return res.status(error.response.status || 400).send({ error: error.message })
-  }
-})
+// router.get('/', async (req, res) => {
+//   try {
+//     const products = await axios.get(url)
+//     return res.send({ products })
+//   } catch (error) {
+//     return res.status(error.response.status || 400).send({ error: error.message })
+//   }
+// })
 
 export default router
