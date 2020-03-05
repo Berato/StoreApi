@@ -2,17 +2,17 @@ import express from 'express'
 import axios from 'axios'
 import { redSky as url } from './../constants'
 import Products from './../model/Products'
+import verifyJWT from './../middleware/verifyJWT'
 
 const router = express.Router()
 
 router.route('/:id')
-  .put(async (req, res) => {
-    /* TODO Add JWT authorization to this verb endpoint */
+  .put(verifyJWT, async (req, res) => {
     const { id } = req.params
     const productsURL = `${url}/${id}`
     let price = null
-    if (req.query.price) {
-      price = req.query.price
+    if (req.body.price) {
+      price = req.body.price
     }
 
     try {
@@ -57,12 +57,12 @@ router.route('/:id')
 
       const [price, product] = allProductData
       const name = product.data.product.item.product_description.title
-      const { current_price } = price // Standard Style wants CamelCase but I'm doing snake case to be consistent with the exercise.
+      const { current_price: currentPrice } = price
 
       const response = {
         id,
         name,
-        current_price
+        current_price: currentPrice
       }
 
       return res.send(response)

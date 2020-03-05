@@ -4,6 +4,8 @@ const Users = mongoose.Schema({
   username: {
     type: String,
     required: true,
+    min: 3,
+    max: 30,
     unique: true
   },
 
